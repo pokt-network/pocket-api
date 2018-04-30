@@ -1,0 +1,33 @@
+{
+  "name": "pocket-api",
+  "version": "0.0.1",
+  "description": "An API to programatically interface with the Pocket Network",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokt-network/pocket-api.git"
+  },
+  "keywords": [
+    "blockchain",
+    "pocket",
+    "network",
+    "infrastructure",
+    "decentralized",
+    "ethereum"
+  ],
+  "author": "Luis C. de Leon <luis@pokt.network>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pokt-network/pocket-api/issues"
+  },
+  "homepage": "https://github.com/pokt-network/pocket-api#readme",
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-body": "^2.5.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0"
+  }
+}
