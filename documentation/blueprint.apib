@@ -1,0 +1,93 @@
+FORMAT: 1A
+
+# Pocket API REST API Endpoint
+This is the blueprint for the Pocket REST API Endpoint. This will provide a RESTful interface to the Pocket Network.
+
+# Group Nodes
+Represents a list of Nodes currently registered in the Pocket Network.
+
+## Single Node [/nodes/{nonce}]
+
++ Parameters
+
+    + nonce: 0xc8f5f8406cc290462f88bd30383f44bdb0d4bc6d694fc0d73a6e2e9db73743d2 (string) - An unique identifier of the node.
+
+### Retrieve a Node [GET]
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "node": {
+                "nonce": "0xc8f5f8406cc290462f88bd30383f44bdb0d4bc6d694fc0d73a6e2e9db73743d2",
+                "owner": "0xe1b33afb88c77e343ecbb9388829eef6123a980a",
+                "networks": ["BTC", "ETH"],
+                "endpoint": "http://red.pokt.network/relays"
+              }
+            }
+
++ Response 404 (application/json)
+
+    + Body
+
+            {
+              "node": {}
+            }
+
+## Nodes List [/nodes{?page,networks,owner}]
+A filterable list of nodes registered in the network.
+
+The list will always have a per page value of 10.
+
+### Retrieve the Nodes list [GET]
+
++ Parameters
+
+    + page (number, optional) - The current page number for the list.
+        + Default: `1`
+    + networks (string, optional) - A comma separated list of networks to filter by.
+        + Default: ``
+    + owner (string, optional) - An Ethereum address to filter the nodes by.
+        + Default: ``
+
++ Response 200 (application/json)
+
+        {
+          "nodes": [
+            {
+              "nonce": "0xc8f5f8406cc290462f88bd30383f44bdb0d4bc6d694fc0d73a6e2e9db73743d2",
+              "owner": "0xe1b33afb88c77e343ecbb9388829eef6123a980a",
+              "networks": ["BTC", "ETH"],
+              "endpoint": "http://red.pokt.network/relays"
+            }
+          ]
+        }
+
+# Group Contracts
+Represents the contracts on the Pocket Network
+
+## Contract List [/contracts]
+
+### Retrieve the contracts list [GET]
+
++ Response 200 (application/json)
+
+        {
+          "contracts": [
+            {
+              "name": "NodeRegistryAPI",
+              "address": "0xb6c2f293e225bfe89af1e53a599cbc9375cbf870"
+            },
+            {
+              "name": "EpochRegistryAPI",
+              "address": "0x4cdaf013049eebf5891b389b0fc638386253d9aa"
+            }
+          ]
+        }
