@@ -2,7 +2,10 @@
   "name": "pocket-api",
   "version": "0.0.1",
   "description": "An API to programatically interface with the Pocket Network",
-  "main": "src/app.js",
+  "main": "src/pocket-api.js",
+  "bin": {
+    "pocket-api": "./src/pocket-api.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +28,7 @@
   },
   "homepage": "https://github.com/pokt-network/pocket-api#readme",
   "dependencies": {
+    "commander": "^2.15.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-logger": "^3.2.0",
