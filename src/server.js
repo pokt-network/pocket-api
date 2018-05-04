@@ -1,5 +1,5 @@
 const AppRoot = require('app-root-path');
-const KoaStatic = require('koa-static');
+const send = require('koa-send');
 const Koa = require('koa');
 const Router = require('koa-router');
 const KoaBody = require('koa-body');
@@ -41,6 +41,10 @@ class PocketApiServer {
 
   setupControllers(){
     var server = this;
+
+    this.webRouter.get('/', async(ctx, next) => {
+      await send(ctx, ctx.path, { root: AppRoot.path + '/public/index.html' });
+    });
     // Setup the /nodes routes
     this.webRouter.get('/nodes/:nonce', async (ctx, next) => {
       ctx.nodeRegistryAPI = await server.getNodeRegistryAPI();
@@ -63,7 +67,6 @@ class PocketApiServer {
   configureRoutes(){
     this.webServer.use(this.webRouter.routes());
     this.webServer.use(this.webRouter.allowedMethods());
-    this.webServer.use(KoaStatic(AppRoot + '/public'));
   }
 
   configureServer(){

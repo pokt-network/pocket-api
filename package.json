@@ -1,6 +1,6 @@
 {
   "name": "pocket-rest-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An API to programatically interface with the Pocket Network",
   "main": "src/pocket-api.js",
   "bin": {
@@ -34,7 +34,7 @@
     "koa-body": "^2.5.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "koa-static": "^4.0.2",
+    "koa-send": "^4.1.3",
     "truffle-contract": "^3.0.5"
   }
 }
