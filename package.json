@@ -1,6 +1,6 @@
 {
   "name": "pocket-rest-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An API to programatically interface with the Pocket Network",
   "main": "src/pocket-api.js",
   "bin": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/pokt-network/pocket-api#readme",
   "dependencies": {
+    "app-root-path": "^2.0.1",
     "commander": "^2.15.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",

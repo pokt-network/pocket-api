@@ -1,3 +1,4 @@
+const AppRoot = require('app-root-path');
 const KoaStatic = require('koa-static');
 const Koa = require('koa');
 const Router = require('koa-router');
@@ -62,7 +63,7 @@ class PocketApiServer {
   configureRoutes(){
     this.webServer.use(this.webRouter.routes());
     this.webServer.use(this.webRouter.allowedMethods());
-    this.webServer.use(KoaStatic('public'));
+    this.webServer.use(KoaStatic(AppRoot + '/public'));
   }
 
   configureServer(){
